@@ -1,7 +1,15 @@
 import { useState } from "react";
 import HouseCard from "../components/HouseCard";
 
-const houseImages = ["/house1.jpg", "/house2.jpg", "/house3.jpg"];
+// Import images from the assets folder
+import house1 from "../assets/house1.jpeg";
+import house2 from "../assets/house2.jpeg";
+import house3 from "../assets/house3.jpeg";
+import house4 from "../assets/house4.jpeg";
+import house5 from "../assets/house5.jpeg";
+
+// Store image imports in an array
+const houseImages = [house1, house2, house3, house4, house5];
 
 export default function Swipe() {
   const [index, setIndex] = useState(0);
