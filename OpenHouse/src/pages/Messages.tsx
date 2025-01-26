@@ -1,10 +1,23 @@
-import React from "react";
+import { MessageCircle } from "lucide-react"; // Chat icon
+import { useNavigate } from "react-router-dom";
+import "../index.css"; // Import global styles
 
 export default function Messages() {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h1 className="text-3xl font-bold text-red-600">💬 Messages</h1>
-      <p className="text-gray-700">Your conversations with landlords will appear here.</p>
+    <div className="messages-container">
+      <h1 className="messages-title">Messages</h1>
+
+      <div className="messages-list">
+        <div className="message-card" onClick={() => navigate("/chat/240-rue-milton")}>
+          <div className="message-info">
+            <h2 className="message-address">240 Rue Milton</h2>
+            <p className="message-preview">You are free to come over this Tuesday...</p>
+          </div>
+          <MessageCircle className="message-icon" />
+        </div>
+      </div>
     </div>
   );
 }

@@ -50,6 +50,18 @@ body {
   overflow: hidden;
 }
 
+.house-card-wrapper {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
 .house-card-image-container img {
   width: 100%;
   height: 100%;
@@ -119,8 +131,8 @@ body {
   background: white;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
-  width: 90%;
-  max-width: 800px;
+  width: 95%; /* Increased width */
+  max-width: 850px; /* Increased max-width */
 }
 
 /* House Card & Swipe Section */
@@ -205,4 +217,81 @@ body {
 
 .bottom-nav button:hover {
   color: red;
+}
+
+/* Center the liked house list */
+.liked-container {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.liked-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #dc2626; /* Red */
+  margin-bottom: 1.5rem;
+}
+
+.liked-list {
+  width: 100%;
+  max-width: 28rem; /* Limit width */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Individual liked house card */
+.liked-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Raised effect for first liked house */
+.liked-card-first {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.liked-address {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.liked-price {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.liked-status {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.liked-match {
+  color: #16a34a; /* Green */
+}
+
+.liked-pending {
+  color: #f59e0b; /* Yellow */
+}
+
+.liked-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
 }
