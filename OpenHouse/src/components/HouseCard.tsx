@@ -33,19 +33,19 @@ export default function HouseCard({
         <p className="text-gray-700">Square Feet: {squareFeet}</p>
       </div>
 
-      {/* Swipe Buttons */}
+      {/* Swipe Buttons (Replaced Text with ❌ and ❤️) */}
       <div className="flex justify-between p-4">
         <button
           onClick={() => onSwipe(false)}
-          className="px-6 py-3 bg-red-600 text-white rounded-full hover:bg-red-700"
+          className="p-4 bg-black text-white rounded-full hover:bg-gray-800 shadow-md text-3xl"
         >
-          Swipe Left
+          ❌
         </button>
         <button
           onClick={() => onSwipe(true)}
-          className="px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700"
+          className="p-4 bg-red-600 text-white rounded-full hover:bg-red-700 shadow-md text-3xl"
         >
-          Swipe Right
+          ❤️
         </button>
       </div>
     </div>
