@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home"; // ✅ Home is the starting page
+import Layout from "./components/Layout"; // ✅ Wraps pages with NavBar
+import Home from "./pages/Home";
 import Swipe from "./pages/Swipe";
 import Liked from "./pages/Liked";
 import Messages from "./pages/Messages";
@@ -9,11 +10,39 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} /> {/* ✅ Start on Home */}
-        <Route path="/swipe" element={<Swipe />} /> {/* ✅ Navigate to Swipe */}
-        <Route path="/liked" element={<Liked />} />
-        <Route path="/messages" element={<Messages />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/swipe"
+          element={
+            <Layout>
+              <Swipe />
+            </Layout>
+          }
+        />
+        <Route
+          path="/liked"
+          element={
+            <Layout>
+              <Liked />
+            </Layout>
+          }
+        />
+        <Route
+          path="/messages"
+          element={
+            <Layout>
+              <Messages />
+            </Layout>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Layout>
+              <Profile />
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );

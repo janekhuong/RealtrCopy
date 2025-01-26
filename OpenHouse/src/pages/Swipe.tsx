@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import HouseCard from "../components/HouseCard";
 
 // Import images
@@ -29,13 +28,12 @@ export default function Swipe() {
   });
 
   const [houses, setHouses] = useState(allHouses);
-  const navigate = useNavigate(); // 🔥 React Router navigation
 
   const handleSwipe = (liked: boolean) => {
     if (index < houses.length - 1) {
       setIndex(index + 1);
     } else {
-      setIndex(-1); // No more houses
+      setIndex(-1); // Stack finished
     }
   };
 
@@ -142,22 +140,6 @@ export default function Swipe() {
             </button>
           </div>
         )}
-      </div>
-
-      {/* Bottom Navigation Bar */}
-      <div className="fixed bottom-4 w-full bg-white p-4 shadow-md flex justify-around rounded-xl">
-        <button onClick={() => navigate("/swipe")} className="text-gray-700 hover:text-red-600 text-lg">
-          📜 Feed
-        </button>
-        <button onClick={() => navigate("/liked")} className="text-gray-700 hover:text-red-600 text-lg">
-          ❤️ Liked Houses
-        </button>
-        <button onClick={() => navigate("/messages")} className="text-gray-700 hover:text-red-600 text-lg">
-          💬 Messages
-        </button>
-        <button onClick={() => navigate("/profile")} className="text-gray-700 hover:text-red-600 text-lg">
-          👤 Profile
-        </button>
       </div>
     </div>
   );
