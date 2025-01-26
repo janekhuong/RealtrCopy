@@ -43,8 +43,15 @@ url = f"{base_url_places}?categories={categories}&filter={filter_circle}&limit={
 
 resp = requests.get(url, headers=headers)
 
-<<<<<<< HEAD
-print(resp.content)
-=======
-print(resp.content)
->>>>>>> c8c135c57c9f9648400d7795323e6b1ff81c37ef
+data = json.loads(resp.text)
+
+
+places = []
+for feature in data["features"]:
+    places.append("name: " + str(feature["properties"].get("name")) \
+           + "categories: " + str(feature["properties"].get("categories")) \
+           + "facilities: " + str(feature["properties"].get("facilities")) \
+    )
+
+
+print(places)
