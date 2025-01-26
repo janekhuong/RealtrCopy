@@ -1,7 +1,7 @@
 import requests
 from requests.structures import CaseInsensitiveDict
-import sys
 from urllib.parse import quote, urlencode
+import subprocess
 
 api_key = "53bc05c2b55b484fabd3edb050912758"
 base_url = 'https://api.geoapify.com/v2/places'
@@ -10,9 +10,14 @@ base_url = 'https://api.geoapify.com/v2/places'
 limit = 50
 
 
+
+coords = subprocess.run(["python", "./GetCoords"], capture_output=True, text=True)
+coords.stdout.splitlines()
+
+
 categories = quote("activity,commercial,catering,education,entertainment,healthcare")
-lat = sys.argv[1]
-long = sys.argv[2]
+lat = coords[1]
+long = coords[2]
 range = 1000
 filter_circle = 'circle:{lat},{long},{range}'
 
