@@ -18,7 +18,7 @@ export default function RegisterLogin() {
 
   const handleAuth = async () => {
     try {
-      if (action == "Sign up") {
+      if (action == "Sign Up") {
         // Sign-up logic
         const userCredential = await createUserWithEmailAndPassword(
           auth,
