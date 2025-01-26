@@ -60,36 +60,43 @@ button:focus-visible {
   outline: 4px auto red;
 }
 
-/* Navigation Bar */
-.navbar {
+/* Ensure filters stay in a row */
+.filter-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #e5e7eb;
+  justify-content: center;
+  gap: 12px; /* Space between filters */
+  flex-wrap: nowrap; /* Prevent stacking */
+  overflow-x: auto; /* Allow scrolling if needed */
+  white-space: nowrap; /* Keep elements on the same line */
+  padding: 12px;
   background: white;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  color: #e60000;
-  font-size: 1.2rem;
-}
-
-.navbar-logo svg {
-  margin-right: 8px;
-}
-
-.navbar-link {
-  color: #555;
-  text-decoration: none;
+.filter-container label {
+  font-size: 14px;
   font-weight: 500;
-  transition: color 0.3s;
+  color: #333;
 }
 
-.navbar-link:hover {
-  color: #e60000;
+.filter-container input {
+  width: 80px; /* Ensure consistent width */
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.filter-container button {
+  background: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.filter-container button:hover {
+  background: #0056b3;
 }
