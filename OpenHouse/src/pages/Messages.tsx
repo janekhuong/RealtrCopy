@@ -17,20 +17,22 @@ export default function Messages() {
     <div className="messages-container">
       <h1 className="messages-title">Messages</h1>
 
-      <div className="messages-list">
-        {messages.map((message, index) => (
-          <div
-            key={message.id}
-            className={`message-card ${index === 0 ? "message-card-first" : ""}`}
-            onClick={() => navigate(`/chat/${message.address.replace(/\s+/g, '-').toLowerCase()}`)}
-          >
-            <div>
-              <h2 className="message-address">{message.address}</h2>
-              <p className="message-preview">{message.preview}</p>
+      <div className="messages-background">
+        <div className="messages-list">
+          {messages.map((message) => (
+            <div
+              key={message.id}
+              className="message-card"
+              onClick={() => navigate(`/chat/${message.address.replace(/\s+/g, '-').toLowerCase()}`)}
+            >
+              <div>
+                <h2 className="message-address">{message.address}</h2>
+                <p className="message-preview">{message.preview}</p>
+              </div>
+              <MessageCircle className="message-icon" />
             </div>
-            <MessageCircle className="message-icon" />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

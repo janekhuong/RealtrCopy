@@ -6,8 +6,8 @@ const profile = {
   age: 25,
   location: "Montreal, QC",
   bio: "Exploring the city, enjoying coffee, and finding the perfect home.",
-  matches: 10,
-  pending: 5,
+  matches: 1,
+  pending: 4,
 };
 
 export default function Profile() {
