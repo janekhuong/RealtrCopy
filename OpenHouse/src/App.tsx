@@ -5,6 +5,7 @@ import Swipe from "./pages/Swipe";
 import Liked from "./pages/Liked";
 import Messages from "./pages/Messages";
 import Profile from "./pages/Profile";
+import SignUp from "./pages/SignUp"; // ✅ Import SignUp component
 
 export default function App() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
             </Layout>
           }
         />
+        <Route path="/signup" element={<SignUp />} /> {/* ✅ Add this route */}
       </Routes>
     </Router>
   );

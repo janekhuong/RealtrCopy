@@ -18,6 +18,15 @@ export default function Home() {
       >
         Get Started
       </button>
+      
+      {/* Sign Up / Login Button */}
+      <button
+  className="mt-6 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition"
+  onClick={() => navigate("/signup")} // ✅ Make sure this matches the new route
+>
+  Sign Up / Login
+</button>
+
 
       {/* Descriptive Feature Cards */}
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">

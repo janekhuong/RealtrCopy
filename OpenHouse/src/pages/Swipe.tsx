@@ -1,20 +1,26 @@
 import { useState } from "react";
 import HouseCard from "../components/HouseCard";
 
-// Import images
-import house1 from "../assets/house1.jpeg";
-import house2 from "../assets/house2.jpeg";
-import house3 from "../assets/house3.jpeg";
-import house4 from "../assets/house4.jpeg";
-import house5 from "../assets/house5.jpeg";
+// Import house images
+import house1a from "../assets/house1a.jpeg";
+import house1b from "../assets/house1b.jpeg";
+import house1c from "../assets/house1c.jpeg";
+import house2a from "../assets/house2a.jpeg";
+import house2b from "../assets/house2b.jpeg";
+import house3a from "../assets/house3a.jpeg";
+import house3b from "../assets/house3b.jpeg";
+import house4a from "../assets/house4a.jpeg";
+import house4b from "../assets/house4b.jpeg";
+import house5a from "../assets/house5a.jpeg";
+import house5b from "../assets/house5b.jpeg";
 
-// Define house listings with placeholders
+// Define house listings with multiple images
 const allHouses = [
-  { image: house1, address: "240 Rue Milton, Montreal, USA", price: 1975, bedrooms: 1, bathrooms: 1, squareFeet: 600 },
-  { image: house2, address: "3485 Rue Aylmer, Montreal, USA", price: 2600, bedrooms: 1, bathrooms: 1, squareFeet: 0 },
-  { image: house3, address: "3636 Rue Clark, Montreal, USA", price: 1300, bedrooms: 1, bathrooms: 1, squareFeet: 350 },
-  { image: house4, address: "235 Rue Sherbrooke, Montreal, USA", price: 1680, bedrooms: 1, bathrooms: 1, squareFeet: 0 },
-  { image: house5, address: "350 Boul. De Maisonneueve, Montreal, USA", price: 1700, bedrooms: 1, bathrooms: 1, squareFeet: 0 },
+  { images: [house1a, house1b, house1c], address: "240 Rue Milton, Montreal, QC", price: 1975, bedrooms: 1, bathrooms: 1, squareFeet: 600 },
+  { images: [house2a, house2b], address: "3485 Rue Aylmer, Montreal, QC", price: 2600, bedrooms: 1, bathrooms: 1, squareFeet: 0 },
+  { images: [house3a, house3b], address: "3636 Rue Clark, Montreal, QC", price: 1300, bedrooms: 1, bathrooms: 1, squareFeet: 350 },
+  { images: [house4a, house4b], address: "235 Rue Sherbrooke, Montreal, QC", price: 1680, bedrooms: 1, bathrooms: 1, squareFeet: 0 },
+  { images: [house5a, house5b], address: "350 Boul. De Maisonneuve, Montreal, QC", price: 1700, bedrooms: 1, bathrooms: 1, squareFeet: 0 },
 ];
 
 export default function Swipe() {
@@ -111,13 +117,12 @@ export default function Swipe() {
       <div className="house-card-container">
         {index >= 0 ? (
           <HouseCard
-            image={houses[index].image}
+            images={houses[index].images}
             address={houses[index].address}
             price={`$${houses[index].price}/Monthly`}
             bedrooms={houses[index].bedrooms}
             bathrooms={houses[index].bathrooms}
             squareFeet={houses[index].squareFeet === 0 ? "N/A" : houses[index].squareFeet}
-            onSwipe={handleSwipe}
           />
         ) : index === -2 ? (
           <div className="text-center">
