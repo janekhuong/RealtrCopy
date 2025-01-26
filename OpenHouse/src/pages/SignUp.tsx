@@ -44,6 +44,7 @@ export default function RegisterLogin() {
     }
   };
 
+
   return (
     <div className="container">
       <div className="header">
@@ -86,6 +87,9 @@ export default function RegisterLogin() {
         >
           Login
         </div>
+      </div>
+      <div className="submit2">
+        <button onClick={RegisterLogin}>Submit</button>
       </div>
     </div>
   );
