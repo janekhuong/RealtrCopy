@@ -55,103 +55,103 @@ export default function Swipe() {
     setIndex(filteredHouses.length > 0 ? 0 : -2); // -2 if no results found
   };
 
-  const resetFilters = () => {
-    setFilters({ minPrice: 0, maxPrice: 10000, minBedrooms: 1, minBathrooms: 1, minSquareFeet: 0 });
-    setHouses(allHouses);
-    setIndex(0);
-  };
-
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 pb-20">
-{/* Filter Section - Uses CSS to force horizontal layout */}
-<div className="filter-container">
-  <div>
-    <label>Min Price ($)</label>
-    <input
-      type="number"
-      value={filters.minPrice}
-      onChange={(e) => setFilters({ ...filters, minPrice: Number(e.target.value) })}
-    />
-  </div>
-
-  <div>
-    <label>Max Price ($)</label>
-    <input
-      type="number"
-      value={filters.maxPrice}
-      onChange={(e) => setFilters({ ...filters, maxPrice: Number(e.target.value) })}
-    />
-  </div>
-
-  <div>
-    <label>Bedrooms</label>
-    <input
-      type="number"
-      value={filters.minBedrooms}
-      onChange={(e) => setFilters({ ...filters, minBedrooms: Number(e.target.value) })}
-    />
-  </div>
-
-  <div>
-    <label>Bathrooms</label>
-    <input
-      type="number"
-      value={filters.minBathrooms}
-      onChange={(e) => setFilters({ ...filters, minBathrooms: Number(e.target.value) })}
-    />
-  </div>
-
-  <div>
-    <label>Min Sq Ft</label>
-    <input
-      type="number"
-      value={filters.minSquareFeet}
-      onChange={(e) => setFilters({ ...filters, minSquareFeet: Number(e.target.value) })}
-    />
-  </div>
-
-  <button onClick={applyFilters}>Apply</button>
-</div>
-
-
-      {/* House Card, No Results Message, or Completion Message */}
-      {index >= 0 ? (
-        <HouseCard
-          image={houses[index].image}
-          address={houses[index].address}
-          price={`$${houses[index].price}/Monthly`}
-          bedrooms={houses[index].bedrooms}
-          bathrooms={houses[index].bathrooms}
-          squareFeet={houses[index].squareFeet === 0 ? "N/A" : houses[index].squareFeet}
-          onSwipe={handleSwipe}
-        />
-      ) : index === -2 ? ( // No matching results
-        <div className="text-center p-6">
-          <h2 className="text-2xl font-bold text-gray-700">No results found under your filters.</h2>
-          <button
-            className="mt-4 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700"
-            onClick={resetFilters}
-          >
-            Reset Filters
-          </button>
+    <div className="swipe-container">
+      {/* Filter Section */}
+      <div className="filter-container">
+        <div>
+          <label>Min Price ($)</label>
+          <input
+            type="number"
+            value={filters.minPrice}
+            onChange={(e) => setFilters({ ...filters, minPrice: Number(e.target.value) })}
+          />
         </div>
-      ) : (
-        <div className="text-center p-6">
-          <h2 className="text-2xl font-bold text-gray-700">You've explored all matching houses!</h2>
-          <button
-            className="mt-4 px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700"
-            onClick={handleRestart}
-          >
-            Restart
-          </button>
-        </div>
-      )}
 
-      {/* Bottom Navigation Bar */}
-      <div className="fixed bottom-0 w-full bg-white p-4 shadow-md flex justify-around">
-        <button className="text-gray-700 hover:text-red-600 text-lg">🏠 Home</button>
-        <button className="text-gray-700 hover:text-red-600 text-lg">❤️ Liked Houses</button>
-        <button className="text-gray-700 hover:text-red-600 text-lg">👤 Profile</button>
+        <div>
+          <label>Max Price ($)</label>
+          <input
+            type="number"
+            value={filters.maxPrice}
+            onChange={(e) => setFilters({ ...filters, maxPrice: Number(e.target.value) })}
+          />
+        </div>
+
+        <div>
+          <label>Bedrooms</label>
+          <input
+            type="number"
+            value={filters.minBedrooms}
+            onChange={(e) => setFilters({ ...filters, minBedrooms: Number(e.target.value) })}
+          />
+        </div>
+
+        <div>
+          <label>Bathrooms</label>
+          <input
+            type="number"
+            value={filters.minBathrooms}
+            onChange={(e) => setFilters({ ...filters, minBathrooms: Number(e.target.value) })}
+          />
+        </div>
+
+        <div>
+          <label>Min Sq Ft</label>
+          <input
+            type="number"
+            value={filters.minSquareFeet}
+            onChange={(e) => setFilters({ ...filters, minSquareFeet: Number(e.target.value) })}
+          />
+        </div>
+
+        <button onClick={applyFilters}>Apply</button>
+      </div>
+
+      {/* House Card Section */}
+      <div className="house-card-container">
+        {index >= 0 ? (
+          <HouseCard
+            image={houses[index].image}
+            address={houses[index].address}
+            price={`$${houses[index].price}/Monthly`}
+            bedrooms={houses[index].bedrooms}
+            bathrooms={houses[index].bathrooms}
+            squareFeet={houses[index].squareFeet === 0 ? "N/A" : houses[index].squareFeet}
+            onSwipe={handleSwipe}
+          />
+        ) : index === -2 ? (
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-gray-700">No results found under your filters.</h2>
+            <button
+              className="mt-4 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700"
+              onClick={applyFilters}
+            >
+              Reset Filters
+            </button>
+          </div>
+        ) : (
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-gray-700">You've explored all matching houses!</h2>
+            <button
+              className="mt-4 px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700"
+              onClick={handleRestart}
+            >
+              Restart
+            </button>
+          </div>
+        )}
+
+        {/* Swipe Buttons Centered Below Card */}
+        {index >= 0 && (
+          <div className="swipe-buttons">
+            <button onClick={() => handleSwipe(false)} className="swipe-left">
+              ❌
+            </button>
+            <button onClick={() => handleSwipe(true)} className="swipe-right">
+              ❤️
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
