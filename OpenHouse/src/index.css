@@ -295,3 +295,211 @@ body {
   height: 1.5rem;
   margin-right: 0.5rem;
 }
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: red;
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset Default Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  color: darkred;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Messages Page Styling */
+.messages-container {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 40rem; /* Increased width to match liked-container */
+}
+
+.messages-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #dc2626; /* Red */
+  margin-bottom: 1.5rem;
+}
+
+.messages-list {
+  width: 100%;
+  max-width: 40rem; /* Increased width to match liked-list */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Individual message card */
+.message-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 40rem; /* Adjust width to match liked-card */
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Raised effect for first message */
+.message-card:first-child {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.message-card:hover {
+  transform: scale(1.05);
+}
+
+.message-address {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.message-preview {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.message-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #dc2626;
+}
+
+/* Profile Page Styling */
+.profile-container {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.profile-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #dc2626; /* Red */
+  margin-bottom: 1.5rem;
+}
+
+.profile-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 28rem; /* Match width of liked-card */
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-info {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.profile-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-location {
+  font-size: 1rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.profile-bio {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.profile-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-stat-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #dc2626;
+}
