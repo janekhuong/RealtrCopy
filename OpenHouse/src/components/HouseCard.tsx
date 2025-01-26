@@ -7,6 +7,8 @@ interface HouseCardProps {
   bedrooms: number;
   bathrooms: number;
   squareFeet: number;
+  description: string;
+  nearby: string[]; // Array of nearby places
 }
 
 export default function HouseCard({
@@ -16,6 +18,8 @@ export default function HouseCard({
   bedrooms,
   bathrooms,
   squareFeet,
+  description,
+  nearby,
 }: HouseCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -32,7 +36,7 @@ export default function HouseCard({
       <div className="bg-white rounded-xl shadow-lg overflow-hidden w-96">
         {/* Image Carousel */}
         <div className="relative house-card-image-container">
-          <img src={images[currentIndex]} alt="House" />
+          <img src={images[currentIndex]} alt="House" className="w-full h-56 object-cover" />
 
           {/* Left Arrow */}
           <button onClick={prevImage} className="house-card-arrow house-card-arrow-left">
@@ -59,6 +63,22 @@ export default function HouseCard({
           <p className="text-gray-700">Bedrooms: {bedrooms}</p>
           <p className="text-gray-700">Bathrooms: {bathrooms}</p>
           <p className="text-gray-700">Square Feet: {squareFeet}</p>
+        </div>
+
+        {/* Description Section */}
+        <div className="p-4">
+          <h3 className="text-md font-semibold text-gray-900">Description</h3>
+          <p className="text-gray-700 text-sm mt-1">{description}</p>
+        </div>
+
+        {/* Nearby Places Section */}
+        <div className="p-4">
+          <h3 className="text-md font-semibold text-gray-900">Nearby</h3>
+          <ul className="text-gray-700 text-sm mt-1 list-disc list-inside">
+            {nearby.map((place, index) => (
+              <li key={index}>{place}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
