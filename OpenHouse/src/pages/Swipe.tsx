@@ -1,5 +1,29 @@
 import { useState } from "react";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import HouseCard from "../components/HouseCard";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDoTs2FwrW77NX_1cSE_sKnnpazHdp34EU",
+  authDomain: "openhouse-database.firebaseapp.com",
+  projectId: "openhouse-database",
+  storageBucket: "openhouse-database.firebasestorage.app",
+  messagingSenderId: "1006718061358",
+  appId: "1:1006718061358:web:d96d3c4bbd9ddb9ceb08bf",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const docRefApt = doc(db, 'listings', 'ExampleAptListing1');
+const docSnapApt = await getDoc(docRefApt);
+
+if (docSnapApt.exists()) {
+  const docSnapAptData = docSnapApt.data();
+} else {
+  // doc.data() will be undefined in this case
+  console.log("No such document!");
+}
+
 
 // Import images
 import house1 from "../assets/house1.jpeg";
@@ -10,7 +34,7 @@ import house5 from "../assets/house5.jpeg";
 
 // Define house listings with placeholders
 const allHouses = [
-  { image: house1, address: "240 Rue Milton, Montreal, USA", price: 1975, bedrooms: 1, bathrooms: 1, squareFeet: 600 },
+  { image: house1, address: (docSnapAptData.address), price: 1975, bedrooms: 1, bathrooms: 1, squareFeet: 600 },
   { image: house2, address: "3485 Rue Aylmer, Montreal, USA", price: 2600, bedrooms: 1, bathrooms: 1, squareFeet: 0 },
   { image: house3, address: "3636 Rue Clark, Montreal, USA", price: 1300, bedrooms: 1, bathrooms: 1, squareFeet: 350 },
   { image: house4, address: "235 Rue Sherbrooke, Montreal, USA", price: 1680, bedrooms: 1, bathrooms: 1, squareFeet: 0 },

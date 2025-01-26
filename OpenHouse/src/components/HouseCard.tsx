@@ -1,4 +1,5 @@
 import React from "react";
+import { doc, getDoc } from 'firebase/firestore';
 
 interface HouseCardProps {
   image: string;
