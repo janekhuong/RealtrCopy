@@ -9,8 +9,8 @@ api_key = "53bc05c2b55b484fabd3edb050912758"
 
 base_url = "https://api.geoapify.com/v1/geocode/search"
 
-#address = sys.argv[1]
-address = "100 rue St-Denis, Montreal, QC"
+address = sys.argv[1]
+#address = "100 rue St-Denis, Montreal, QC"
 
 # Encode the text
 encoded_address = quote(address)
