@@ -56,7 +56,7 @@ export default function Swipe() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 pb-20">
+    <div className="swipe-container">
       {/* Filter Section */}
       <div className="filter-container">
         <div>
@@ -108,7 +108,7 @@ export default function Swipe() {
       </div>
 
       {/* House Card Section */}
-      <div className="flex flex-col items-center justify-center flex-grow">
+      <div className="house-card-container">
         {index >= 0 ? (
           <HouseCard
             image={houses[index].image}
@@ -137,6 +137,18 @@ export default function Swipe() {
               onClick={handleRestart}
             >
               Restart
+            </button>
+          </div>
+        )}
+
+        {/* Swipe Buttons Centered Below Card */}
+        {index >= 0 && (
+          <div className="swipe-buttons">
+            <button onClick={() => handleSwipe(false)} className="swipe-left">
+              ❌
+            </button>
+            <button onClick={() => handleSwipe(true)} className="swipe-right">
+              ❤️
             </button>
           </div>
         )}
